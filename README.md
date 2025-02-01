@@ -25,8 +25,6 @@ Picker te permitirá conectar tus plataformas y/o comercios a distintos proveedo
  - La segunda parte para calcuar el costo de entraga por pedido
 
 
-*Funcion para crear un pedido:*
-En esta parte 
 
 
 
