@@ -6,4 +6,5 @@
 - Santiago Villamagua (santiago.villamagua@unl.edu.ec)
 - Mathias Medina ( mathias.medina@unl.edu.ec )
 # APIS A UTILIZAR EN EL MENUBOARD
-- Api para delibery de dos funciones  !(https://www.pickerexpress.com/es/desarrollador/documentacion-api-delivery) 
+- Api para delibery de dos funciones "* PICKER * "  https://www.pickerexpress.com/es/desarrollador/documentacion-api-delivery
+- 
