@@ -25,7 +25,7 @@ Picker te permitirá conectar tus plataformas y/o comercios a distintos proveedo
  - La segunda parte para calcuar el costo de entraga por pedido
 
 # Crear un pedido
-
+Para entender un poco la lógica que maneja Picker, una cuenta se la denomina Empresa. Cada empresa puede tener N locales (que pueden representar tiendas, restaurantes, puntos de despacho). Cada local obligatoriamente debe estar referenciado con una dirección y una geolocalización (se las requiere al momento de crearlas). Por ejemplo: Si tu empresa va a manejar 2 sucursales, deberás crear 2 locales, Todo pedido creado en la plataforma de Picker es determinado por un estado. El estado de un pedido es una parte importante del ciclo de vida del mismo. Estos estados pueden indicar si el pedido esta terminado, cancelado o aun en proceso. Es importante que en la integración que se vaya a desarrollar se mapeen todos los estados posibles, para que el cliente tenga muy claro lo que significa cada estado.
 
 ## Estados de Pedido
 
