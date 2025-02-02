@@ -86,6 +86,14 @@ Cuando el pedido no pudo ser entregado al cliente y el pedido esta en camino a s
 ### RETURNED
 Cuando el pedido fue retornado exitosamente al negocio
 
+# Costo de Pedido
+El endpoint de Pre Checkout te permitirá consultar precios y valores del pedido que necesites realizar. Además de eso, te indicará si es posible que podamos atender tu pedido (si el pedido cubre una distancia muy larga entre el local y el punto de entrega; o el punto de entrega esta fuera de cobertura, devolveremos un mensaje de error).
 
+Para este endpoint es obligatorio la locación del punto de entrega. La ubicación del local ya la obtenemos automáticamente por el Api Key del negocio que usas en la autorización.
+
+Otros datos que puedes ingresar en este endpoint son:
+
+- paymentMethod: Es el método de pago que usarás para el pedido. En el caso que exista un pago en efectivo al momento de entregar el pedido, deberás usar CASH. Caso contrario, si no hay ningún pago de por medio y el conductor unicamente tiene que recoger el pedido y entregarle al cliente, deberás usar CARD.  
+- carName: Indicá el tipo de vehículo que necesitas para tu pedido. Si es un pedido de dimensiones pequeñas y necesitas una moto, debes ingresar aquí BIKE. Si tu pedido es de mayores dimensiones y necesitas un coche, deberás usar LITE.
 
 # API RAMPAGO
