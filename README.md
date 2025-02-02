@@ -97,3 +97,35 @@ Otros datos que puedes ingresar en este endpoint son:
 - carName: Indicá el tipo de vehículo que necesitas para tu pedido. Si es un pedido de dimensiones pequeñas y necesitas una moto, debes ingresar aquí BIKE. Si tu pedido es de mayores dimensiones y necesitas un coche, deberás usar LITE.
 
 # API RAMPAGO
+
+La API de Rampago es una herramienta diseñada para facilitar la conversión de moneda fiduciaria (fiat) a USDC (USD Coin). Esta API es especialmente útil para aplicaciones que requieren integrar la compra o conversión de criptomonedas de manera sencilla y segura, ofreciendo una interfaz programática para interactuar con el servicio de Rampago. Permitiendo una variedad de transacciones entre diferentes tipos de moneda/ criptomoneda, y operar de manera sencilla con los mismos, por medio de las conversiones y/o transacciones de cualquier tipo por medio de una moneda USDC como intermediario en las operaciones
+
+## Endpoints Principales de la API
+
+La API de Rampago ofrece varios endpoints clave para interactuar con su servicio tales y como:
+
+1. Obtener una lista de bancos soportados, usando el método GET, para obtener como resultado, los bancos disponibles para efectuar la transacción a realizarse
+2. Iniciar una Transacción empleando el método POST ya habiendo revisado el banco, los datos del usuario y la moneda a convertir, para devolver como resultado una lista de detalles para completar el pago 
+3. Verificar Estado de una Transacción, usando el método GET, y como dato de ingreso la ID de la transacción, y emitiendo una respuesta como pendiente, completada o fallida
+4. Obtener Tasas de Conversión entre monedas empleando el método GET y una serie de fórmulas entre los diferentes tipos de moneda como euros o dólares, y convertirlos en otro tipo de moneda y otra posible cantidad de moneda establecida bajo una serie de conversiones detalladas en el resultado
+
+## AUTENTICACIONES
+
+La API de Rampago requiere de realizar algunas autenticaciones, usando API Keys en el encabezado de las solicitudes realizadas, empleando los siguientes encabezados
+- X-RapidAPI-Key que identifica la clave API del usuario para validar la autenticación.
+- X-RapidAPI-Host que define el host de la API de Rampago para direccionar la solicitud correctamente.
+
+ ## INTEGRACIÓN DE LIBRERIAS PARA SOLICITUDES
+ 
+Para realizar cualquier interacción entre la API usando Django, se requiere de una librería que permita realizar cualquier solicitud HTTP con la información mencionada en la sección de los endpoints, algunas como httpx o requests que facilitan las solicitudes.
+
+## PROCESOS DE INTEGRACIÓN CLAVE
+Una vez completado ese hito, comenzamos los procesos de la integración que determinan las acciones a realizarse dentro del proyecto Django, primero se inicia una transacción enviando una solicitud a la API para crear una nueva, esta parte del proceso considera los datos iniciales de una transacción como el banco al que se realizara su transacción, la cantidad y la moneda que se manejarán y los datos personales del usuario. El objetivo del proceso es enviar los datos principales de la API, respondiendo con el estado de la misma, empleada en el siguiente proceso que es la verificación del estado, proceso necesario para determinar si la transacción fue aprobada, sigue procesándose, o si fue rechazada y para ello se emplea la ID de la transacción generada por medio de los datos personales y mantener una verificación del estado de la operación, estos dos son los pilares básicos en la integración de procesos en Django.
+
+## CONFIGURACIÓN DE RUTAS
+
+Luego se debe continuar configurando las rutas en Django para definir los accesos a las funciones de la aplicación en las URL, las rutas se configuran en el archivo urls.py de la aplicación, definiendo el archivo principal, el de rutas y las vistas asociadas a cada ruta, para configurar rutas en django se debe crear o editar el archivo urls.py en la aplicación usando path() o re_path(). Luego incluimos las rutas en el archivo para que sean accesibles de forma global, finalmente podemos probar el funcionamiento ejecutando el servidor de desarrollo usando las URLs definidas.
+
+## CONSIDERACIONES ADICIONALES
+
+Hay que considerar algunos detalles a la hora de implementar la API en un proyecto Django, para garantizar seguridad, estabilidad y funcionalidad como No exponer la clave API en el frontend, ya que Las API keys son privadas, si se exponen pueden ser robadas, para ello se debe usar la clave solo en el backend y no en los archivos que el usuario pueda acceder y manejar la comunicación con la API exclusivamente en el servidor. También es buena opción Almacenar la clave API en variables de entorno(Archivo .env), para evitar que las claves se registren en el control de versiones, así como almacenar claves sin alterar el código, por último se debe gestionar los errores de la manera lo más adecuada para evitar fallos en la aplicación, para ello se deben validar los datos antes de enviarlos a la API, manejar las respuestas HTTP bajo errores, proceder a reintentar después de atravesar un fallo al cabo de un tiempo y registrar los errores para futuros análisis
