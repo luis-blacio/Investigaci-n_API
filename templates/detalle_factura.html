@@ -1,0 +1,39 @@
+{% extends "components.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Detalle de la Factura #{{ factura.numero }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pedido: #{{ factura.pedido.numero }}</h5>
+            <p class="card-text">Fecha: {{ factura.fecha }}</p>
+            <p class="card-text">Subtotal: ${{ factura.subtotal }}</p>
+            <p class="card-text">Impuestos: ${{ factura.impuestos }}</p>
+            <p class="card-text">Descuento: ${{ factura.descuento }}</p>
+            <p class="card-text">Total: ${{ factura.total }}</p>
+        </div>
+    </div>
+    <h3 class="mt-4">Productos</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in factura.pedido.items.all %}
+            <tr>
+                <td>{{ item.producto.nombre }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>${{ item.precio_unitario }}</td>
+                <td>${{ item.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'facturacion:lista_facturas' %}" class="btn btn-secondary">Volver</a>
+</div>
+{% endblock %}

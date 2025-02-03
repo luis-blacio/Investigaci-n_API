@@ -1,0 +1,37 @@
+{% extends "components.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Lista de Pedidos</h1>
+    <a href="{% url 'facturacion:nuevo_pedido' %}" class="btn btn-primary mb-3">Nuevo Pedido</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{ pedido.numero }}</td>
+                <td>{{ pedido.cliente.nombre }}</td>
+                <td>{{ pedido.fecha }}</td>
+                <td>{{ pedido.estado }}</td>
+                <td>${{ pedido.total }}</td>
+                <td>
+
+                    <a href="{% url 'facturacion:crear_pago' pedido.id %}" class="btn btn-success">
+                        Pagar Pedido #{{ pedido.numero }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
