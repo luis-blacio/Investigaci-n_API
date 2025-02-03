@@ -98,24 +98,19 @@ Otros datos que puedes ingresar en este endpoint son:
 - paymentMethod: Es el método de pago que usarás para el pedido. En el caso que exista un pago en efectivo al momento de entregar el pedido, deberás usar CASH. Caso contrario, si no hay ningún pago de por medio y el conductor unicamente tiene que recoger el pedido y entregarle al cliente, deberás usar CARD.  
 - carName: Indicá el tipo de vehículo que necesitas para tu pedido. Si es un pedido de dimensiones pequeñas y necesitas una moto, debes ingresar aquí BIKE. Si tu pedido es de mayores dimensiones y necesitas un coche, deberás usar LITE.
 
-# API RAMPAGO
+# API STRIPE
 
-La API de Rampago es una herramienta diseñada para facilitar la conversión de moneda fiduciaria (fiat) a USDC (USD Coin). Esta API es especialmente útil para aplicaciones que requieren integrar la compra o conversión de criptomonedas de manera sencilla y segura, ofreciendo una interfaz programática para interactuar con el servicio de Rampago. Permitiendo una variedad de transacciones entre diferentes tipos de moneda/ criptomoneda, y operar de manera sencilla con los mismos, por medio de las conversiones y/o transacciones de cualquier tipo por medio de una moneda USDC como intermediario en las operaciones
+La API de Stripe es una herramienta diseñada para facilitar la conversión de moneda fiduciaria (fiat) a USDC (USD Coin). Esta API es especialmente útil para aplicaciones que requieren integrar la compra o conversión de criptomonedas de manera sencilla y segura, ofreciendo una interfaz programática para interactuar con el servicio de Rampago. Permitiendo una variedad de transacciones entre diferentes tipos de moneda/ criptomoneda, y operar de manera sencilla con los mismos, por medio de las conversiones y/o transacciones de cualquier tipo por medio de una moneda USDC como intermediario en las operaciones
 
 ## Endpoints Principales de la API
 
-La API de Rampago ofrece varios endpoints clave para interactuar con su servicio tales y como:
+La API de Stripe ofrece varios endpoints clave para interactuar con su servicio tales y como:
 
 1. Obtener una lista de bancos soportados, usando el método GET, para obtener como resultado, los bancos disponibles para efectuar la transacción a realizarse
 2. Iniciar una Transacción empleando el método POST ya habiendo revisado el banco, los datos del usuario y la moneda a convertir, para devolver como resultado una lista de detalles para completar el pago 
 3. Verificar Estado de una Transacción, usando el método GET, y como dato de ingreso la ID de la transacción, y emitiendo una respuesta como pendiente, completada o fallida
 4. Obtener Tasas de Conversión entre monedas empleando el método GET y una serie de fórmulas entre los diferentes tipos de moneda como euros o dólares, y convertirlos en otro tipo de moneda y otra posible cantidad de moneda establecida bajo una serie de conversiones detalladas en el resultado
 
-## AUTENTICACIONES
-
-La API de Rampago requiere de realizar algunas autenticaciones, usando API Keys en el encabezado de las solicitudes realizadas, empleando los siguientes encabezados
-- X-RapidAPI-Key que identifica la clave API del usuario para validar la autenticación.
-- X-RapidAPI-Host que define el host de la API de Rampago para direccionar la solicitud correctamente.
 
  ## INTEGRACIÓN DE LIBRERIAS PARA SOLICITUDES
  
