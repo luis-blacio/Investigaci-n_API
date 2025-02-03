@@ -126,3 +126,19 @@ Luego se debe continuar configurando las rutas en Django para definir los acceso
 ## CONSIDERACIONES ADICIONALES
 
 Hay que considerar algunos detalles a la hora de implementar la API en un proyecto Django, para garantizar seguridad, estabilidad y funcionalidad como No exponer la clave API en el frontend, ya que Las API keys son privadas, si se exponen pueden ser robadas, para ello se debe usar la clave solo en el backend y no en los archivos que el usuario pueda acceder y manejar la comunicación con la API exclusivamente en el servidor. También es buena opción Almacenar la clave API en variables de entorno(Archivo .env), para evitar que las claves se registren en el control de versiones, así como almacenar claves sin alterar el código, por último se debe gestionar los errores de la manera lo más adecuada para evitar fallos en la aplicación, para ello se deben validar los datos antes de enviarlos a la API, manejar las respuestas HTTP bajo errores, proceder a reintentar después de atravesar un fallo al cabo de un tiempo y registrar los errores para futuros análisis
+### Propuesta
+
+La propuesta incluye la integración del API de Stripe en la página web del restaurante para pagos en línea seguros y rápidos. Se abarcará la configuración de pagos en línea, automatización de facturación, suscripciones, pagos recurrentes y cumplimiento de normativas de seguridad. Se realizará un análisis de requerimientos, configuración de Stripe, integración en la plataforma web con botones de pago y formularios seguros. Se automatizará la facturación con generación de recibos electrónicos y pruebas en entorno de desarrollo antes del despliegue en producción con monitoreo constante, La implementación de Stripe en un restaurante brindará beneficios como mejor experiencia de usuario, seguridad en transacciones, automatización de facturación, flexibilidad en métodos de pago y aumento en la conversión de ventas. Ayudará a mejorar la operativa digital y garantizar un sistema de pago eficiente y seguro.
+## Evidencias 
+
+Estas evidencias son la parte beta de nuestra pagina web de restaurante, es un modelo donde ya funciona el API mencionado
+
+![WhatsApp Image 2025-02-02 at 23 29 55](https://github.com/user-attachments/assets/cdbdcfc4-1a11-4bef-a574-05ec2452f0f3)
+
+![WhatsApp Image 2025-02-02 at 23 30 20](https://github.com/user-attachments/assets/bc1dee77-a62f-4258-ae25-b46bbfb0650e)
+
+![WhatsApp Image 2025-02-02 at 23 30 47](https://github.com/user-attachments/assets/051b8673-30e2-40c9-a1d0-0688ab4ef977)
+
+![WhatsApp Image 2025-02-02 at 23 31 26](https://github.com/user-attachments/assets/186dd8a7-3a69-4e4c-b806-d03c69fb82b1)
+
+![WhatsApp Image 2025-02-02 at 23 31 45](https://github.com/user-attachments/assets/24260030-d8fa-48b1-bb76-e7a1482e0adb)
