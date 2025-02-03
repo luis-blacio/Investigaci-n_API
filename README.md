@@ -3,7 +3,7 @@
 Link del Repositorio: https://github.com/luis-blacio/Investigaci-n_API
 
 # INTEGRANTES
-- Tyron Morales (tayron.morales@unl.edu.ec) 
+- Tayron Morales (tayron.morales@unl.edu.ec) 
 - Luis Blacio (luis.blacio@unl.edu.ec)
 - Santiago Villamagua (santiago.villamagua@unl.edu.ec)
 - Mathias Medina ( mathias.medina@unl.edu.ec )
