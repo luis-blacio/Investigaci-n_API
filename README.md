@@ -9,7 +9,7 @@ Link del Repositorio: https://github.com/luis-blacio/Investigaci-n_API
 - Mathias Medina ( mathias.medina@unl.edu.ec )
 # APIS A UTILIZAR EN EL MENUBOARD
 - Api para delibery de dos funciones " PICKER "  https://www.pickerexpress.com/es/desarrollador/documentacion-api-delivery
-- Api para pago con tarjetas de credito y facturación " RAMPAGO " https://rapidapi.com/RampagoHub/api/rampago-seamless-fiat-to-usdc-fiat-ramp
+- Api para pago con tarjetas de credito y facturación " STRIPE " https://docs.stripe.com/payments?payments=popular
 
 #  API PICKER 
 La API Picker es una interfaz utilizada en aplicaciones web para permitir a los usuarios seleccionar archivos de su dispositivo o de servicios en la nube de manera eficiente.
