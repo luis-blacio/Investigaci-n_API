@@ -5,7 +5,6 @@
     <title>Lista de Pedidos</title>
 </head>
 <body>
-    {% extends "components.html" %}
 
     {% block content %}
     <div class="container mt-4">
@@ -31,7 +30,6 @@
                     <td>{{ pedido.estado }}</td>
                     <td>${{ pedido.total }}</td>
                     <td>
-
                         <a href="{% url 'facturacion:crear_pago' pedido.id %}" class="btn btn-success">
                             Pagar Pedido #{{ pedido.numero }}
                         </a>

@@ -32,7 +32,8 @@ class Pedido(models.Model):
     estado = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='PENDIENTE')
     fecha = models.DateTimeField(auto_now_add=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    menu = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='facturacion_pedidos')  # Relación con Menu
+    menu= models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='facturacion_pedidos')  # Relación con Menu
+
 
     @property
     def total(self):
@@ -125,7 +126,7 @@ def create_checkout_session(request, pedido_id):
 @login_required
 def payment_success(request):
     session_id = request.GET.get('session_id')
-    if session_id:
+    if (session_id):
         try:
             session = stripe.checkout.Session.retrieve(session_id)
             pedido = Pedido.objects.get(numero=session.metadata.get('pedido_id'))

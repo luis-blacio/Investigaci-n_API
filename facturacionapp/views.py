@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.conf import settings
 import stripe
 from .models import Factura, PagoStripe, Pedido
+from .geolocalizador import Geolocalizador
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -88,3 +89,12 @@ def lista_facturas(request):
 def detalle_factura(request, factura_id):
     factura = Factura.objects.get(pk=factura_id)
     return render(request, 'detalle_factura.html', {'factura': factura})
+
+def mapa(request):
+    geolocalizador = Geolocalizador(api_key=settings.GOOGLE_MAPS_API_KEY)
+    lat, lng = geolocalizador.geolocate()
+    context = {
+        'lat': lat,
+        'lng': lng
+    }
+    return render(request, 'map.html', context)

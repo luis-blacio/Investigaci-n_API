@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa de Geolocalización</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMJFf-a4KxIIpRuv5vvPO5Mz-qnske2A&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var lat = {{ lat }};
+            var lng = {{ lng }};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: lat, lng: lng},
+                zoom: 15
+            });
+            var marker = new google.maps.Marker({
+                position: {lat: lat, lng: lng},
+                map: map,
+                title: 'Tu ubicación'
+            });
+        }
+    </script>
+    <style>
+        #map {
+            height: 100%;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>

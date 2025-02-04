@@ -54,7 +54,7 @@ class IMenu(ABC):
         pass
 
     @abstractmethod
-    def agregar_categoria(self, menu_id: int, categoria: Categoria) -> None:
+    def agregar_categoria(self, menu: int, categoria: Categoria) -> None:
         pass
 
     @abstractmethod
@@ -78,7 +78,7 @@ class IMenu(ABC):
         pass
 
     @abstractmethod
-    def mostrar_menu(self, menu_id: int) -> Dict[str, Any]:
+    def mostrar_menu(self, menu: int) -> Dict[str, Any]:
         pass
 
 
@@ -93,8 +93,8 @@ class MenuService(IMenu):
     def eliminar_producto(self, id_categoria: int, id_producto: int) -> None:
         Categoria.objects.get(id=id_categoria).productos.filter(id=id_producto).delete()
 
-    def agregar_categoria(self, menu_id: int, categoria: Categoria) -> None:
-        menu = Menu.objects.get(id=menu_id)
+    def agregar_categoria(self, menu: int, categoria: Categoria) -> None:
+        menu = Menu.objects.get(id= menu)
         categoria.menu = menu
         categoria.save()
 
@@ -118,8 +118,8 @@ class MenuService(IMenu):
     def buscar_producto(self, nombre: str) -> List[Producto]:
         return list(Producto.objects.filter(nombre__icontains=nombre))
 
-    def mostrar_menu(self, menu_id: int) -> Dict[str, Any]:
-        menu = Menu.objects.get(id=menu_id)
+    def mostrar_menu(self, menu: int) -> Dict[str, Any]:
+        menu = Menu.objects.get(id=menu)
         return {
             "menu": menu,
             "categorias": list(menu.categorias.all())
