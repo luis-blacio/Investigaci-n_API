@@ -1,31 +1,40 @@
-{% extends "components.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Lista de Facturas</title>
+</head>
+<body>
+    {% extends "components.html" %}
 
-{% block content %}
-<div class="container mt-4">
-    <h1>Lista de Facturas</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Número</th>
-                <th>Pedido</th>
-                <th>Fecha</th>
-                <th>Total</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for factura in facturas %}
-            <tr>
-                <td>{{ factura.numero }}</td>
-                <td>Pedido #{{ factura.pedido.numero }}</td>
-                <td>{{ factura.fecha }}</td>
-                <td>${{ factura.total }}</td>
-                <td>
-                    <a href="{% url 'facturacion:detalle_factura' factura.id %}" class="btn btn-info btn-sm">Ver</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endblock %}
+    {% block content %}
+    <div class="container mt-4">
+        <h1>Lista de Facturas</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Pedido</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for factura in facturas %}
+                <tr>
+                    <td>{{ factura.numero }}</td>
+                    <td>Pedido #{{ factura.pedido.numero }}</td>
+                    <td>{{ factura.fecha }}</td>
+                    <td>${{ factura.total }}</td>
+                    <td>
+                        <a href="{% url 'facturacion:detalle_factura' factura.id %}" class="btn btn-info btn-sm">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

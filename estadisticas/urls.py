@@ -5,4 +5,5 @@ app_name = 'estadisticas'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    # Añade aquí otras rutas necesarias para la aplicación 'estadisticas'
 ]

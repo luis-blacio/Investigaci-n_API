@@ -1,4 +1,3 @@
-
 """
 Django settings for menuboard project.
 
@@ -44,12 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'estadisticas.apps.EstadisticasConfig',
-    'facturacionapp.apps.FacturacionappConfig',
-    'inventario.apps.InventarioConfig',
-    'menus.apps.MenusConfig',
-    'mesas.apps.MesasConfig',
-    'pedidos.apps.PedidosConfig'
+    'facturacionapp',
+    'pedidos',
+    'menus',
+    'mesas',
+    'estadisticas',
+
 ]
 
 MIDDLEWARE = [
@@ -67,8 +66,7 @@ ROOT_URLCONF = 'menuboard.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"]
-        ,
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,7 +88,7 @@ WSGI_APPLICATION = 'menuboard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

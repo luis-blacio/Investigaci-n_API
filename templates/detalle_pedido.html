@@ -1,37 +1,48 @@
-{% extends "components.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Detalle del Pedido</title>
+</head>
+<body>
+    <h1>Detalle del Pedido</h1>
+    <!-- Contenido del detalle del pedido -->
+    {% extends "components.html" %}
 
-{% block content %}
-<div class="container mt-4">
-    <h1>Detalle del Pedido #{{ pedido.numero }}</h1>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Cliente: {{ pedido.cliente.nombre }}</h5>
-            <p class="card-text">Fecha: {{ pedido.fecha }}</p>
-            <p class="card-text">Estado: {{ pedido.estado }}</p>
-            <p class="card-text">Total: ${{ pedido.total }}</p>
+    {% block content %}
+    <div class="container mt-4">
+        <h1>Detalle del Pedido #{{ pedido.numero }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Cliente: {{ pedido.cliente.nombre }}</h5>
+                <p class="card-text">Fecha: {{ pedido.fecha }}</p>
+                <p class="card-text">Estado: {{ pedido.estado }}</p>
+                <p class="card-text">Total: ${{ pedido.total }}</p>
+            </div>
         </div>
+        <h3 class="mt-4">Productos</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in pedido.items.all %}
+                <tr>
+                    <td>{{ item.producto.nombre }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>${{ item.precio_unitario }}</td>
+                    <td>${{ item.subtotal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'facturacion:lista_pedidos' %}" class="btn btn-secondary">Volver</a>
     </div>
-    <h3 class="mt-4">Productos</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio Unitario</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in pedido.items.all %}
-            <tr>
-                <td>{{ item.producto.nombre }}</td>
-                <td>{{ item.cantidad }}</td>
-                <td>${{ item.precio_unitario }}</td>
-                <td>${{ item.subtotal }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="{% url 'facturacion:lista_pedidos' %}" class="btn btn-secondary">Volver</a>
-</div>
-{% endblock %}
+    {% endblock %}
+</body>
+</html>

@@ -25,8 +25,8 @@ class FacturaAdmin(admin.ModelAdmin):
 
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'precio', 'precio_con_impuestos')
-    filter_horizontal = ('impuestos',)
+    list_display = ('nombre', 'precio', 'disponibilidad')
+    search_fields = ('nombre', 'descripcion')
 
 @admin.register(PagoStripe)
 class PagoStripeAdmin(admin.ModelAdmin):
